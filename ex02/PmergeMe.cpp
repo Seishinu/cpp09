@@ -6,7 +6,7 @@
 /*   By: ynuiga <ynuiga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 14:52:00 by ynuiga            #+#    #+#             */
-/*   Updated: 2023/04/02 16:03:30 by ynuiga           ###   ########.fr       */
+/*   Updated: 2023/04/02 16:32:38 by ynuiga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ PmergeMe::PmergeMe( int *numbers , int nsize ): arr(numbers), size(nsize), myvec
 	qmergesort(myq, 0, size - 1);
 	std::clock_t deqend_time = std::clock();
 	time_elapsed = static_cast<double>(deqend_time - deqstart_time) / CLOCKS_PER_SEC;
-	std::cout << "Time to process a range of " << size << " elements with std::[deque] : " << (time_elapsed * 1000000.0) << " us"<< std::endl;
+	std::cout << "Time to process a range of " << size << " elements with std::[deque] : " << std::fixed << std::setprecision(5) << (time_elapsed * 1000000.0) << " us"<< std::endl;
 }
 
 PmergeMe::PmergeMe( const PmergeMe &copy ): arr(copy.arr) {
