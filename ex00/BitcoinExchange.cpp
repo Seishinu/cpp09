@@ -6,7 +6,7 @@
 /*   By: ynuiga <ynuiga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 11:08:12 by ynuiga            #+#    #+#             */
-/*   Updated: 2023/04/02 14:26:37 by ynuiga           ###   ########.fr       */
+/*   Updated: 2023/04/03 16:30:13 by ynuiga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,9 @@ double BitcoinExchange::datavalExtract( const std::string &line ) {
 	if (line.at(0) >= '0' && line.at(0) <= '9') {
 		size_t comma = line.find(",");
 		std::string valstr = line.substr(comma + 1, line.size());
-		double val = std::stod(valstr);
+		std::stringstream ss(valstr);
+		double val;
+		ss >> val;
 		return (val);
 	}
 	return 0;
@@ -79,7 +81,9 @@ std::string BitcoinExchange::keyExtract( const std::string &line ) {
 double BitcoinExchange::valExtract( const std::string &line ) {
 	size_t pipe = line.find("|");
 	std::string valstr = line.substr(pipe + 1, line.size());
-	double val = std::stod(valstr);
+	std::stringstream ss(valstr);
+	double val;
+	ss >> val;
 	return (val);
 }
 
